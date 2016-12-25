@@ -1,6 +1,6 @@
 ---
 layout: post
-title: You're up and running!
+title: Hello World!
 published: true
 ---
 Hello! Just made this blog using the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub. Super easy to setup. Also, I'm using [Prose](http://prose.io/) to edit this post with Markdown.
