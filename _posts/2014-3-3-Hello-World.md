@@ -1,10 +1,8 @@
 ---
 layout: post
 title: You're up and running!
+published: true
 ---
+Hello! Just made this blog using the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub. Super easy to setup. Also, I'm using [Prose](http://prose.io/) to edit this post with Markdown.
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
-
-![_config.yml]({{ site.baseurl }}/images/config.png)
-
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+I'm not sure what I'm going to use this blog for yet, but it will probably end up being to track progress on personal projects or events I attend. Idk.
