@@ -4,7 +4,7 @@
 //
 // IMPORTS
 //
-
+@import url('https://fonts.googleapis.com/css?family=VT323');
 @import "reset";
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
@@ -18,9 +18,9 @@ html {
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+	background: $base03;
+  font: 16px/1.4 $helveticaNeue;
+  color: $base0;
 }
 
 .container {
@@ -28,14 +28,15 @@ body {
   max-width: 740px;
   padding: 0 10px;
   width: 100%;
+  background: $base02;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
+  font-family: $vt323;
+  color: $yellow;
   font-weight: bold;
 
-  line-height: 1.7;
+  line-height: 1.5;
   margin: 1em 0 15px;
   padding: 0;
 
@@ -53,15 +54,17 @@ h1 {
 
 h2 {
   font-size: 24px;
+  color: inherit;
 }
 
 h3 {
   font-size: 20px;
+  color: inherit;
 }
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: $yellow;
 }
 
 p {
@@ -69,11 +72,11 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $orange;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: $orange;
   }
 }
 
@@ -123,11 +126,11 @@ img {
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
-  background: $lightGray;
+  background: $cyan;
 }
 ::selection {
   color: $black;
-  background: $lightGray;
+  background: $cyan;
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -156,7 +159,7 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid $yellow;
 
   @include mobile {
     text-align: center;
@@ -192,18 +195,19 @@ img {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: $yellow;
   cursor: pointer;
-  font-family: $helveticaNeue;
+  font-family: $vt323;
   font-weight: 300;
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing: 1px;
 }
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
+  color: $yellow;
+  font-family: $vt323;
+  font-size: 18px;
 
   @include mobile {
     margin: 3px 0;
@@ -213,7 +217,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
+  font-family: $vt323;
   font-size: 18px;
 
   @include mobile {
@@ -225,7 +229,7 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: $yellow;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
@@ -243,7 +247,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid $yellow;
 }
 
 .posts > .post:last-child {
@@ -254,9 +258,9 @@ nav {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 2px solid $gray;
+    border-left: 2px solid $yellow;
     padding: 0.1em 1em;
-    color: $gray;
+    color: inherit;
     font-size: 22px;
     font-style: italic;
   }
@@ -273,14 +277,15 @@ nav {
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  //border-top: 1px solid $yellow;
+  //border-bottom: 1px solid $yellow;
+  background-color: $base03;
 }
 
 footer {
   padding: 20px 0;
   text-align: center;
+  background-color: $base02;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
