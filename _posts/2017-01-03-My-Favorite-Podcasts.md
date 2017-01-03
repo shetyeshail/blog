@@ -1,5 +1,7 @@
 ---
-published: false
+layout: post
+title: My Favorite Podcasts
+published: true
 ---
 ## I've recently gotten back into podcasts...
 
