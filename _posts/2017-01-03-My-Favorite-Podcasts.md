@@ -40,20 +40,37 @@ This one is just for fun, a nice little story which I thought was cool and could
 ## Others I've been meaning to check out...
 
 There are other podcasts I've been meaning to checkout because I've heard good things about them, but I don't have the time to keep updated on too many more series at once. These include:
+
 - [a16z](http://a16z.com/podcasts/)
+
 - [Acquired](http://www.acquired.fm/)
+
 - [Design Details](https://spec.fm/podcasts/design-details)
+
 - [Developer Tea](https://spec.fm/podcasts/developer-tea)
+
 - [Does Not Compute](https://spec.fm/podcasts/does-not-compute)
+
 - [First 200 Days](http://www.forbes.com/podcasts/first-200-days/#26042e5de5dd)
+
 - [How I Built This](http://www.npr.org/podcasts/510313/how-i-built-this)
+
 - [Immutable](https://spec.fm/podcasts/immutable)
+
 - [Layout](http://layout.fm/)
+
 - [Millennial](http://www.millennialpodcast.org/)
+
 - [On Taking Pictures](http://5by5.tv/otp)
+
 - [Serial](https://serialpodcast.org/)
+
 - [StartUp Podcast](https://gimletmedia.com/startup/)
+
 - [TED Radio Hour](http://www.npr.org/programs/ted-radio-hour/?showDate=2016-12-30)
+
 - [The Critical Path](http://5by5.tv/criticalpath)
+
 - [Tiny Desk Concerts](http://www.npr.org/series/tiny-desk-concerts/)
+
 - [Well, Technically](http://www.forbes.com/podcasts/well-technically/#3786503a4b33)
