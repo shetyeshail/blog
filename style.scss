@@ -19,7 +19,7 @@ html {
 
 body {
 	background: $white;
-  font: 16px/1.4 $spectral;
+  font: 18px/1.4 $spectral;
   font-weight: 300;
   color: $black;
 }
@@ -32,8 +32,21 @@ body {
   background: $white;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-family: $robotoCondensed;
+  color: $intlorange;
+  font-weight: 500;
+
+  line-height: 1.5;
+  margin: 1em 0 15px;
+  padding: 0;
+
+  @include mobile {
+    line-height: 1.4;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: $spectral;
   color: $intlorange;
   font-weight: 500;
 
@@ -280,7 +293,7 @@ nav {
   margin-top: 50px;
   //border-top: 1px solid $yellow;
   //border-bottom: 1px solid $yellow;
-  background-color: $lightGray;
+  background-color: $white;
 }
 
 footer {
