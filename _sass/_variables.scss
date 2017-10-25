@@ -6,6 +6,10 @@
 // Colors
 $blue: #4183C4;
 
+//nasa colors
+$intlorange: #FF4F00;
+$navyblue: #0B3D91;
+
 //Solarized
 $yellow: #b58900;
 $orange: #cb4b16;
@@ -34,6 +38,8 @@ $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 $vt323: 'VT323', monospace;
+$spectral: 'Spectral', serif;
+$robotoCondensed: 'Roboto Condensed', sans-serif;
 
 // Mobile breakpoints
 @mixin mobile {

@@ -4,7 +4,7 @@
 //
 // IMPORTS
 //
-@import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Spectral');
 @import "reset";
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
@@ -18,9 +18,9 @@ html {
 }
 
 body {
-	background: $base03;
-  font: 16px/1.4 $helveticaNeue;
-  color: $base0;
+	background: $white;
+  font: 16px/1.4 $spectral;
+  color: $black;
 }
 
 .container {
@@ -32,8 +32,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $vt323;
-  color: $yellow;
+  font-family: $robotoCondensed;
+  color: $intlorange;
   font-weight: bold;
 
   line-height: 1.5;
@@ -72,11 +72,11 @@ p {
 }
 
 a {
-  color: $orange;
+  color: $navyblue;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $orange;
+    color: $intlorange;
   }
 }
 
@@ -159,7 +159,7 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $yellow;
+  border-bottom: 1px solid $intlorange;
 
   @include mobile {
     text-align: center;
@@ -195,9 +195,9 @@ img {
 
 .site-name {
   margin: 0;
-  color: $yellow;
+  color: $intlorange;
   cursor: pointer;
-  font-family: $vt323;
+  font-family: $robotoCondensed;
   font-weight: 300;
   font-size: 30px;
   letter-spacing: 1px;
@@ -205,8 +205,8 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $yellow;
-  font-family: $vt323;
+  color: $black;
+  font-family: $robotoCondensed;
   font-size: 18px;
 
   @include mobile {
@@ -217,7 +217,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $vt323;
+  font-family: $robotoCondensed;
   font-size: 18px;
 
   @include mobile {
@@ -229,14 +229,14 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $yellow;
+    color: $intlorange;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
 
     @include mobile {
       margin: 0 10px;
-      color: $blue;
+      color: $navyblue;
     }
   }
 }
@@ -247,7 +247,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $yellow;
+  border-bottom: 1px solid $intlorange;
 }
 
 .posts > .post:last-child {
@@ -258,7 +258,7 @@ nav {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 2px solid $yellow;
+    border-left: 2px solid $navyblue;
     padding: 0.1em 1em;
     color: inherit;
     font-size: 22px;
@@ -279,13 +279,13 @@ nav {
   margin-top: 50px;
   //border-top: 1px solid $yellow;
   //border-bottom: 1px solid $yellow;
-  background-color: $base03;
+  background-color: $lightGray;
 }
 
 footer {
   padding: 20px 0;
   text-align: center;
-  background-color: $base02;
+  background-color: $white;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
