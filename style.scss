@@ -4,7 +4,7 @@
 //
 // IMPORTS
 //
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Spectral');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Spectral:300,300i,500,500i,700,700i');
 @import "reset";
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
@@ -20,6 +20,7 @@ html {
 body {
 	background: $white;
   font: 16px/1.4 $spectral;
+  font-weight: 300;
   color: $black;
 }
 
@@ -34,7 +35,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $robotoCondensed;
   color: $intlorange;
-  font-weight: bold;
+  font-weight: 500;
 
   line-height: 1.5;
   margin: 1em 0 15px;
