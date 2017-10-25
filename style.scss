@@ -28,7 +28,7 @@ body {
   max-width: 740px;
   padding: 0 10px;
   width: 100%;
-  background: $base02;
+  background: $white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -125,12 +125,12 @@ img {
 
 // Specify the color of the selection
 ::-moz-selection {
-  color: $black;
-  background: $cyan;
+  color: $white;
+  background: $navyblue;
 }
 ::selection {
-  color: $black;
-  background: $cyan;
+  color: $white;
+  background: $navyblue;
 }
 
 // Nicolas Gallagher's micro clearfix hack
