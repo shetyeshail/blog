@@ -27,3 +27,5 @@ A good sponsorship document should outline the following:
 
 ![Sponsorship Table]({{site.baseurl}}/images/sponsorship_table.PNG)
 Above is an example of sponsorship tiers from the LHD I organized in 2017.
+
+Sponsor relations should be built over time, and it also takes a while to find enough sponsors for your event and reaching out to them all. It also takes a while to get decisions made with sponsors for prize objectives, prizes, devtalks, representatives, etc. Career advisors at your department, the Computer Science department, business school advisors, career center advisors, etc. are all good resources for looking for potential sponsors. It is a good idea to make a list of sponsors and columns for whether or not they have been contacted, and the main point of contact (both at their company and also which organizer on your end is in charge of their account). It is important to reach out to them early, since different companies have different fiscal schedules and the earlier you ask the better the chances that they can set aside money before their funding runs out for sponsoring events such as LHD.
