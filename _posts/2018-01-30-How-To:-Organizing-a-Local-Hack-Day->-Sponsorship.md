@@ -1,7 +1,6 @@
 ---
 published: false
 ---
-# Sponsorship
 
 Sponsorship is essential to this event, because without sponsors you don't have any source of funding, objectives for prizes, judges, or a source of tech talks. Sponsorship should be sought out early, about 3-4 months before the start of the event.
 
