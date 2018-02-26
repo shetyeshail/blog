@@ -19,11 +19,11 @@ The terminal is a very important application on any Linux system, and it can be 
 
 I am using the standard Pantheon Terminal which comes with Elementary. Out of the box, it looks like this demo I found on the Elementary website.
 
-![Elementary's standard terminal]({{site.baseurl}}/_drafts/elementary_terminal_standard.png)
+![Elementary's standard terminal]({{site.baseurl}}/images/elementary_terminal_standard.png)
 
 It gets the job done, but personally, I don't like the color scheme, would prefer additional color highlighting, and a few other tweaks. Running the following commands allows us to change the color palette it uses, along with setting it to follow the last tab.
 
-![Setting the Terminal color palette.]({{site.baseurl}}/_drafts/carbon_terminal_colors.png)
+![Setting the Terminal color palette.]({{site.baseurl}}/images/carbon_terminal_colors.png)
 
 
 	gsettings set org.pantheon.terminal.settings palette "#070736364242:#DCDC32322F2F:#858599990000:#B5B589890000:#26268B8BD2D2:#D3D336368282:#2A2AA1A19898:#EEEEE8E8D5D5:#00002B2B3636:#CBCB4B4B1616:#58586E6E7575:#65657B7B8383:#838394949696:#6C6C7171C4C4:#9393A1A1A1A1:#FDFDF6F6E3E3"
