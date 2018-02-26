@@ -33,3 +33,4 @@ It gets the job done, but personally, I don't like the color scheme, would prefe
 	gsettings set org.pantheon.terminal.settings follow-last-tab "true"
 
 
+##This post is a work-in-progress.
