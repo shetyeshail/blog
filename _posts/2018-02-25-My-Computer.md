@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 My main computer is my laptop: a Lenovo ThinkPad T450s.
 
