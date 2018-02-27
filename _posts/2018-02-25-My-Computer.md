@@ -84,11 +84,6 @@ Tmux can be installed with the following command:
 
 Now if you close out of your Terminal window and reopen one, Tmux should open a new session automatically since we included it in our .zshrc file. You can tell if it's open, because a green bar should appear at the bottom of your terminal window. The best way to learn Tmux in my opinion is to just play around with it and use it daily. To figure out the commands, I use this [Tmux cheat sheet](https://tmuxcheatsheet.com/). Remember to hit ctrl + b before entering any commands.
 
-My terminal looks like this now once I have installed and configured everything.
-
-![My Terminal.]({{site.baseurl}}/images/terminal_after_tmux_and_colors.png)
-
-
 I also downloaded **dconf-editor** and **Elementary Tweak Tool**. The dconf-editor allows you to change settings for many apps and other aspects of your system, which usually cannot be done within regular settings menus. It is sort of risky, though, and you should research the settings you are changing in case it breaks your system. The Tweak Tool allows you to quickly edit settings and is a lot safer than using the dconf-editor.
 
 I installed a few of my favorite fonts on my system and changed my default fonts for terminal and the system through the Tweak Tool.
@@ -96,6 +91,11 @@ I installed a few of my favorite fonts on my system and changed my default fonts
 ![Where to find Tweak Tool in Settings]({{site.baseurl}}/images/tweak_tool_settings_icon.png)
 ![changing the default fonts in the Tweak Tool]({{site.baseurl}}/images/elementary_changing_default_fonts.png)
 
+My terminal looks like this now once I have installed and configured everything.
+
+![My Terminal.]({{site.baseurl}}/images/terminal_after_tmux_and_colors.png)
+
+## Installing other Applications
 
 
 ## This post is a work-in-progress.
