@@ -76,5 +76,15 @@ fi
 ```
 The first line loads Oh-My-ZSH. The 'export ZSH_THEME' line loads the "ys" theme, which is my preferred theme, but you can pick your own. There's a [list of the included ones on GitHub](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes) and there's a way to download more or customize your own. I also set autocomplete for commands to be hyphen insensitive, and for dots to show up when a command is running. I also enabled the plugin for git, and there's a [list of more plugins on Github](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins). I also setup my editor of choice, which is vim. The last few lines are to attach a tmux session whenever terminal is opened. We haven't setup tmux yet, but we will do that next. You can save and exit out of this .zshrc file.
 
-I also downloaded ****dconf-editor**** and ****
+Tmux is a Terminal MUltipleXer. What I use it for is organizing multiple terminals within a single Terminal window. It allows you to open sessions with multiple panes, and tile the panes or stack them to organize them, and resize them next to each other. So I could have vim open up side by side with my files, and have another pane open with the compiler output or a terminal. This way I can basically replicate having a IDE. Super useful tool.
+
+Tmux can be installed with the following command:
+
+![Installing Tmux]({{site.baseurl}}/images/carbon_install_tmux.png)
+
+Now if you close out of your Terminal window and reopen one, Tmux should open a new session automatically since we included it in our .zshrc file. You can tell if it's open, because a green bar should appear at the bottom of your terminal window. The best way to learn Tmux in my opinion is to just play around with it and use it daily. To figure out the commands, I use this [Tmux cheat sheet](https://tmuxcheatsheet.com/). Remember to hit ctrl + b before entering any commands.
+
+
+
+I also downloaded **** dconf-editor **** and ****
 ## This post is a work-in-progress.
