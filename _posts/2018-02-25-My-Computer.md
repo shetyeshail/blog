@@ -42,7 +42,39 @@ Now I'm going to install Oh-My-ZSH.
 
 No need to use both of those commands, just one is enough. It depends on if you prefer to use WGET or CURL to retrieve files from the server.
 
-Once Oh-My-ZSH is installed, you should create a .zshrc file in your home directory. I have included mine below in case you would like to copy it for yourself. It is very useful for 
+Once Oh-My-ZSH is installed, you should create a .zshrc file in your home directory. I have included mine below in case you would like to copy it for yourself.
+
+```bash
+# path to your oh-my-zsh configuration
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#export ZSH_THEME="robbyrussell"
+export ZSH_THEME="ys"
+
+HYPHEN_INSENSITIVE="true"
+
+COMPLETION_WAITING_DOTS="true"
+
+plugins=(
+    git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+export EDITOR='vim'
+
+tmux attach &> /dev/null
+
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi
+
+```
+The first line loads Oh-My-ZSH. The 'export ZSH_THEME' line loads the "ys" theme, which is my preferred theme, but you can pick your own. There's a [list of the included ones on GitHub](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes) and there's a way to download more or customize your own. I also set autocomplete for commands to be hyphen insensitive, and for dots to show up when a command is running. I also enabled the plugin for git, and there's a [list of more plugins on Github](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins). I also setup my editor of choice, which is vim. The last few lines are to attach a tmux session whenever terminal is opened. We haven't setup tmux yet, but we will do that next. You can save and exit out of this .zshrc file.
 
 I also downloaded ****dconf-editor**** and ****
 ## This post is a work-in-progress.
