@@ -32,5 +32,7 @@ It gets the job done, but personally, I don't like the color scheme, would prefe
 	gsettings set org.pantheon.terminal.settings cursor-color "#838394949696"
 	gsettings set org.pantheon.terminal.settings follow-last-tab "true"
 
+Next I install the ZSH shell and Oh-My-ZSH, a framework for managing ZSH configurations.
 
+I also downloaded ****dconf-editor**** and ****
 ## This post is a work-in-progress.
