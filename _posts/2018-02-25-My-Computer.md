@@ -91,5 +91,11 @@ My terminal looks like this now once I have installed and configured everything.
 
 I also downloaded **dconf-editor** and **Elementary Tweak Tool**. The dconf-editor allows you to change settings for many apps and other aspects of your system, which usually cannot be done within regular settings menus. It is sort of risky, though, and you should research the settings you are changing in case it breaks your system. The Tweak Tool allows you to quickly edit settings and is a lot safer than using the dconf-editor.
 
+I installed a few of my favorite fonts on my system and changed my default fonts for terminal and the system through the Tweak Tool.
+
+![Where to find Tweak Tool in Settings]({{site.baseurl}}/images/tweak_tool_settings_icon.png)
+![changing the default fonts in the Tweak Tool]({{site.baseurl}}/images/elementary_changing_default_fonts.png)
+
+
 
 ## This post is a work-in-progress.
