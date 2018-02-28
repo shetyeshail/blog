@@ -185,7 +185,7 @@ Now you can use Vundle plugins with Vim to access extra features.
 
 ## Power Management with TLP
 
-
+### section still in the works
 
 
 ## Installing other Applications
@@ -199,4 +199,4 @@ We enabled PPA earlier to install the Tweak Tool. PPAs are one way to install 3r
 - [Boxes](https://wiki.gnome.org/Apps/Boxes) - for virtual machines
 - and more. I'll add to this list as I think of more applications I use.
 
-## This post is a work-in-progress.
+# This post is a work-in-progress.
