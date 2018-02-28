@@ -86,6 +86,8 @@ Now if you close out of your Terminal window and reopen one, Tmux should open a 
 
 I also downloaded **dconf-editor** and **Elementary Tweak Tool**. The dconf-editor allows you to change settings for many apps and other aspects of your system, which usually cannot be done within regular settings menus. It is sort of risky, though, and you should research the settings you are changing in case it breaks your system. The Tweak Tool allows you to quickly edit settings and is a lot safer than using the dconf-editor.
 
+![Installing PPA, Tweak Tool, and dconf-editor]({{site.baseurl}}/images/carbon_installing_ppa_tweaks_and_dconf-editor.png)
+
 I installed a few of my favorite fonts on my system and changed my default fonts for terminal and the system through the Tweak Tool.
 
 ![Where to find Tweak Tool in Settings]({{site.baseurl}}/images/tweak_tool_settings_icon.png)
@@ -95,7 +97,106 @@ My terminal looks like this now once I have installed and configured everything.
 
 ![My Terminal.]({{site.baseurl}}/images/terminal_after_tmux_and_colors.png)
 
+## Installing Vim
+
+My preferred text editor is Vim (aka **Vi** i**M**proved). It's very lightweight and runs within the Terminal. Although it is lightweight, it is very customizable and highly robust. Many programmers love and use it, and it has a very large fanbase. Another text editor that many people use is emacs, and there is a flamewar between the two sides on which is the superior text editor. We're going to try to stay away from this debate, and I'm just going to let you know that I *personally* prefer to use Vim but everyone else is free to form their own opinion.
+
+The way vim is setup is that it uses a .vimrc configuration file in the home directory for settings. The following is my .vimrc file.
+
+```viml
+set nocompatible        " be iMproved, required
+filetype off            " required
+set t_Co=256            " fixing color issues in iTerm
+set encoding=utf-8      " because duh
+
+set noswapfile          " screw swap files
+set relativenumber      " shows linenumbers relative to your current one
+set number              " The best of both worlds (tm)
+set ts=2 sw=2           " because tabs should be two spaces
+set softtabstop=2       " ^^^
+set expandtab           " to insert space characters whenever the tab key is pressed
+set backspace=indent,eol,start
+set autoindent
+set smartindent
+
+" All of this replaces tabs with »···
+highlight SpecialKey ctermfg=1
+set list
+set listchars=tab:»·
+
+" Set the runtime path to include Vundle and initialize it
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"""" GENERAL PLUGINS """"
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" file explorer plugin
+Plugin 'tpope/vim-vinegar'
+"""" LANGUAGE PLUGINS """"
+
+" js and jsx highlighting
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" sass editing
+Plugin 'tpope/vim-haml'
+
+"""" INTERFACE PLUGINS """"
+
+" fancy-ass status line that makes me happy
+Plugin 'bling/vim-airline'
+let g:airline_powerline_fonts = 1   " Maximise the pretty
+set laststatus=2
+
+"""" UTILITY PLUGINS """"
+
+" fuzzy file finder
+Plugin 'kien/ctrlp.vim'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/* " Ignore some stuff
+
+"""" CLOSING STATEMENTS """"
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+syntax enable
+
+```
+
+This is not my own creation, the original was given to me by a friend and I modified it to my liking but kept it mostly the same, including the comments.
+
+I use [Vundle](https://github.com/VundleVim/Vundle.Vim) to extend the functionality of Vim. Vundle is short for **V**im B**undle**, and is a Vim plugin manager. To install Vundle, you can run the following code:
+
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+Then you have to launch vim and run the plugin installer.
+
+```bash
+vim
+```
+```viml
+:PluginInstall
+```
+Now you can use Vundle plugins with Vim to access extra features.
+
+## Power Management with TLP
+
+
+
+
 ## Installing other Applications
 
+We enabled PPA earlier to install the Tweak Tool. PPAs are one way to install 3rd party software through the Software Center, App Store, or Terminal using apt-get/aptitude. Other applications I use include:
+- [Google Chrome](http://google.com/chrome) - my preferred web browser
+- [Slack](https://slack.com/) - a useful chat software for teams
+- [Atom](https://atom.io/) - a very good text editor I use sometimes instead of vim
+- [Spotify](https://www.spotify.com/us/) - for music
+- [VLC](https://www.videolan.org/vlc/index.html) - for videos/movies
+- [Boxes](https://wiki.gnome.org/Apps/Boxes) - for virtual machines
+- and more. I'll add to this list as I think of more applications I use.
 
 ## This post is a work-in-progress.
