@@ -48,7 +48,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 Now I can update the package list again so now it has the packages in the new Docker repo we just added and then we can install the necessary packages:
 ```
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
 ```
 
 Now you'll have to check that the Docker service started properly.
@@ -69,3 +69,77 @@ This should return the output as something similar to this:
     CGroup: /system.slice/docker.service
     		└─ 3456 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 ```
+
+If it does not show you a running service for the output then you'll have to troubleshoot further, but it may be as easy as starting the service.
+
+Next you may also want to set it up so that Docker can be run without sudo or root access. You'll have to log out and back into the server after running this command for this to take effect.
+```
+sudo usermod -aG docker ${USER}
+```
+
+## Setting up Docker Compose
+
+Create a directory for your Docker proxy and create a docker-compose.yml file within it.
+
+```
+mkdir ~/proxy
+touch docker-compose.yml
+```
+
+I edit my files with Vim but you can you use whatever you want. We'll start by setting up our docker-compose file.
+
+We're going to add two services (containers) so far: an Nginx reverse proxy and Lets Encrypt so we can get SSL/TSL certificates for our applications.
+
+```
+# using version 2 of the docker-compose file layout
+version: '2'
+
+# defines which containers launch when running docker-compose
+services:
+  
+  # initializes the Nginx reverse proxy container
+  proxy:
+    # image to launch
+    image: jwilder/nginx-proxy
+    # naming the container
+    container_name: proxy
+    # restarts the container unless it is stopped (manually or otherwise)
+    restart: unless-stopped
+    # creates a label so the Let's Encrypt container knows what proxy to connect to
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+    # connect the docker .sock, and 3 additional volumes that sync between proxy ~/proxy folder on server
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:rw
+      - vhost.d:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - ./uploadsize.conf:/etc/nginx/conf.d/uploadsize.conf:ro
+    # the proxy listens on ports 80 (http) and 443 (https)
+    # all web traffic to the vps will have to come through the proxy so it knows how to route it correctly
+    ports:
+      - "80:80"
+      - "443:443"
+    # defining which networks the proxy container will communicate through
+    # default network will handle traffic entering and exiting the VPS
+    # proxy-tier network allows all contaienrs in the stack to communicate with each other
+    networks:
+      - "default"
+      - "proxy-tier"
+
+  # initializes the Let's Encrypt container
+  proxy-letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    restart: unless-stopped
+    environment:
+      - NGINX_PROXY_CONTAINER=proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    volumes_from:
+      - "proxy"
+    depends_on:
+      - "proxy"
+    networks:
+      - "default"
+      - "proxy-tier"
