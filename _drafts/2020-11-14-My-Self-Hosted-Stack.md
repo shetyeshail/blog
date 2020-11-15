@@ -25,3 +25,47 @@ Everything is also setup to work behind an Nginx reverse proxy so I don't have t
 
 I started with a Ubuntu 20.04 server, assigned my DNS with the Cloudflare CDN that I use for everything on my site, and got to work.
 
+## Ubuntu Server
+
+First I spun up a new Ubuntu 20.04 server instance. I updated the list of packages and installed some prereq packages. Setting up unattended-upgrades allows the system to download and install system updates itself in the background.
+
+```
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common unattended-upgrades
+sudo dpkg-reconfigure unattended-upgrades
+```
+
+Then I added the GPG key for the Docker repo:
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+Next I add the Docker APT repo:
+```
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+
+Now I can update the package list again so now it has the packages in the new Docker repo we just added and then we can install the necessary packages:
+```
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+Now you'll have to check that the Docker service started properly.
+```
+sudo systemctl status docker
+```
+
+This should return the output as something similar to this:
+```
+● docker.service - Docker Application Container Engine
+	Loaded:loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+    Active: active (running) since Sat 2020-11-14 04:02:43 CET; 1 day 1h ago
+	TriggeredBy: ● docker.socket
+    Docs: https://docs.docker.com
+    Main PID: 3456 (dockerd)
+    Tasks: 57
+    Memory: 417.1M
+    CGroup: /system.slice/docker.service
+    		└─ 3456 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```
