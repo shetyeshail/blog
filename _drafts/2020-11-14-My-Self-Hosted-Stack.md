@@ -87,9 +87,6 @@ touch docker-compose.yml
 ```
 
 I edit my files with Vim but you can you use whatever you want. We'll start by setting up our docker-compose file.
-
-We're going to add two services (containers) so far: an Nginx reverse proxy and Lets Encrypt so we can get SSL/TSL certificates for our applications.
-
 ```
 # using version 2 of the docker-compose file layout
 version: '2'
@@ -143,3 +140,92 @@ services:
     networks:
       - "default"
       - "proxy-tier"
+      
+  # initializes portainer container, which lets you manage docker containers from a web interface
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    restart: always
+    environment:
+      - VIRTUAL_HOST=portainer.DOMAIN.TLD
+      - LETSENCRYPT_HOST=portainer.DOMAIN.TLD
+      - LETSENCRYPT_EMAIL=EMAIL@ADDRESS.ME
+    volumes:
+      - ./portainer/:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "9000:9000"
+
+  # initializes nextcloud container
+  nextcloud:
+    image: nextcloud:apache
+    container_name: nextcloud
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=nc.DOMAIN.TLD
+      - LETSENCRYPT_HOST=nc.DOMAIN.TLD
+      - LETSENCRYPT_EMAIL=EMAIL@ADDRESS.ME
+      - PGID=999
+      - PUID=1000
+    volumes:
+      - ./nextcloud:/var/www/html
+    ports:
+      - "666:80"
+    networks:
+      - proxy-tier
+      - default
+    depends_on:
+      - "db"
+
+  db:
+    image: mariadb
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: SET_PASSWORD
+      MYSQL_PASSWORD: SET_PASSWORD
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: nextcloud
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  # initializing a bitwarden_rs container
+  bitwardenrs:
+    image: bitwardenrs/server:latest
+    container_name: bitwardenrs
+    restart: always
+    environment:
+      - VIRTUAL_HOST=bw.DOMAIN.TLD
+      - LETSENCRYPT_HOST=bw.DOMAIN.TLD
+      - LETSENCRYPT_EMAIL=EMAIL@ADDRESS.ME
+      - SIGNUPS_ALLOWED='false'
+      - LOG_FILE='/data/bitwarden.log'
+      - ADMIN_TOKEN=GENERATE_A_RANDOM_TOKEN_TO_PUT_HERE
+    volumes:
+      - ./bitwarden:/data
+    ports:
+      - "667:80"
+    networks:
+      - proxy-tier
+      - default
+
+# folders that get shared between the server's file system and the docker container for persistent storage
+volumes:
+  certs:
+  vhost.d:
+  html:
+
+# internal networks
+networks:
+  proxy-tier:
+```
+
+Make sure to replace `DOMAIN.TLD` with your domain name in all sections of the config file.
+For the `db` container make sure to set database passwords.
+To create a random token for the admin token you can use the following in the Ubuntu terminal:
+```
+< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32
+```
+
