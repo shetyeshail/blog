@@ -25,10 +25,13 @@ Everything is also setup to work behind an Nginx reverse proxy so I don't have t
 
 I started with a Ubuntu 20.04 server, assigned my DNS with the Cloudflare CDN that I use for everything on my site, and got to work.
 
+## DNS Settings
+
+Create an **A record** in wherever you manage your domain DNS settings. I use Cloudflare CDN for mine so I created A records for the subdomains `portainer`, `bw`, and `nc`. Make sure to put the IP address of your domain name in the IP address field.
+
 ## Ubuntu Server
 
 First I spun up a new Ubuntu 20.04 server instance. I updated the list of packages and installed some prereq packages. Setting up unattended-upgrades allows the system to download and install system updates itself in the background.
-
 ```
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common unattended-upgrades
@@ -80,7 +83,6 @@ sudo usermod -aG docker ${USER}
 ## Setting up Docker Compose
 
 Create a directory for your Docker proxy and create a docker-compose.yml file within it.
-
 ```
 mkdir ~/proxy
 touch docker-compose.yml
@@ -200,7 +202,7 @@ services:
       - VIRTUAL_HOST=bw.DOMAIN.TLD
       - LETSENCRYPT_HOST=bw.DOMAIN.TLD
       - LETSENCRYPT_EMAIL=EMAIL@ADDRESS.ME
-      - SIGNUPS_ALLOWED='false'
+      - SIGNUPS_ALLOWED='true'
       - LOG_FILE='/data/bitwarden.log'
       - ADMIN_TOKEN=GENERATE_A_RANDOM_TOKEN_TO_PUT_HERE
     volumes:
@@ -222,10 +224,17 @@ networks:
   proxy-tier:
 ```
 
-Make sure to replace `DOMAIN.TLD` with your domain name in all sections of the config file.
-For the `db` container make sure to set database passwords.
+Make sure to replace `DOMAIN.TLD` with your domain name in all sections of the config file. And replace `EMAIL@ADDRESS.ME` with your email address.
+For the `db` container make sure to set database passwords. Replace the `SET_PASSWORDS` fields. 
 To create a random token for the admin token you can use the following in the Ubuntu terminal:
 ```
 < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32
 ```
 
+Save the file and then you can execute the following to download the containers from the DockerHub and run them.
+```
+docker-compose up -d
+```
+
+When you go to those URLs now, `portainer.DOMAIN.TLD`, `nc.DOMAIN.TLD`, or `bw.DOMAIN.TLD`, you'll be able to reach the web interfaces of those applications. You should go into each of these interfaces and make sure you can set your password.
+Also, keep in mind that for the bitwarden_rs app, people will be able to create accounts unless you disable that feature. You'll have to login to the admin panel for that at `bw.DOMAIN.TLD/admin` with that random admin token you generated before.
