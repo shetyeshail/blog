@@ -231,10 +231,16 @@ To create a random token for the admin token you can use the following in the Ub
 < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32
 ```
 
+## Running Docker-Compose
+
 Save the file and then you can execute the following to download the containers from the DockerHub and run them.
 ```shell
 docker-compose up -d
 ```
 
+## Accessing the Apps
+
 When you go to those URLs now, `portainer.DOMAIN.TLD`, `nc.DOMAIN.TLD`, or `bw.DOMAIN.TLD`, you'll be able to reach the web interfaces of those applications. You should go into each of these interfaces and make sure you can set your password.
 Also, keep in mind that for the bitwarden_rs app, people will be able to create accounts unless you disable that feature. You'll have to login to the admin panel for that at `bw.DOMAIN.TLD/admin` with that random admin token you generated before.
+
+It may take a little while but make sure that the HTTPS is working for each of the apps and the certificate has been issued by Let's Encrypt. If that doesn't work you will have to do some more troubleshooting. Don't put off fixing that because otherwise traffic from your computer to the app's backend on the server is unencrypted and could be viewed by someone else with malicious intent.
