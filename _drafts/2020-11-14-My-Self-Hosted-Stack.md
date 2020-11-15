@@ -32,30 +32,30 @@ Create an **A record** in wherever you manage your domain DNS settings. I use Cl
 ## Ubuntu Server
 
 First I spun up a new Ubuntu 20.04 server instance. I updated the list of packages and installed some prereq packages. Setting up unattended-upgrades allows the system to download and install system updates itself in the background.
-```
+```shell
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common unattended-upgrades
 sudo dpkg-reconfigure unattended-upgrades
 ```
 
 Then I added the GPG key for the Docker repo:
-```
+```shell
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 Next I add the Docker APT repo:
-```
+```shell
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 Now I can update the package list again so now it has the packages in the new Docker repo we just added and then we can install the necessary packages:
-```
+```shell
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
 ```
 
 Now you'll have to check that the Docker service started properly.
-```
+```shell
 sudo systemctl status docker
 ```
 
@@ -76,20 +76,20 @@ This should return the output as something similar to this:
 If it does not show you a running service for the output then you'll have to troubleshoot further, but it may be as easy as starting the service.
 
 Next you may also want to set it up so that Docker can be run without sudo or root access. You'll have to log out and back into the server after running this command for this to take effect.
-```
+```shell
 sudo usermod -aG docker ${USER}
 ```
 
 ## Setting up Docker Compose
 
 Create a directory for your Docker proxy and create a docker-compose.yml file within it.
-```
+```shell
 mkdir ~/proxy
 touch docker-compose.yml
 ```
 
 I edit my files with Vim but you can you use whatever you want. We'll start by setting up our docker-compose file.
-```
+```yaml
 # using version 2 of the docker-compose file layout
 version: '2'
 
@@ -227,12 +227,12 @@ networks:
 Make sure to replace `DOMAIN.TLD` with your domain name in all sections of the config file. And replace `EMAIL@ADDRESS.ME` with your email address.
 For the `db` container make sure to set database passwords. Replace the `SET_PASSWORDS` fields. 
 To create a random token for the admin token you can use the following in the Ubuntu terminal:
-```
+```shell
 < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32
 ```
 
 Save the file and then you can execute the following to download the containers from the DockerHub and run them.
-```
+```shell
 docker-compose up -d
 ```
 
