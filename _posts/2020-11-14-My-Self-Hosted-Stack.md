@@ -1,8 +1,6 @@
 ---
 published: true
 ---
-## Introduction
-
 I've been meaning to start self-hosting a lot of the services I use on a regular basis by myself, but haven't really gotten around actually doing it. Every few months I would read an article about how companies are using data from users who use their products and it would make me want to switch, but it was enough of a hassle that I never actually took the plunge. Until this weekend.
 
 A few days ago Google announced that they were removing the unlimited storage feature of Google Photos. I actually use that feature _a ton_. It also got me thinking of all the great [products](https://killedbygoogle.com/) that Google has also shut down over the years. If they decided to shut down Google Photos, Drive, Mail, etc. I would be ruined as basically all my digital data is backed up or stored in Google's ecosystem. It has been since I first created my Google Account for Gmail back when I was around 10 or so (with my parents' permission since I was under the age of 13, of course, if anyone at Google is reading this...)
