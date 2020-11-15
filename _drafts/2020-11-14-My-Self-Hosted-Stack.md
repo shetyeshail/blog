@@ -11,7 +11,7 @@ However, it works quite well, and everything works cohesively together in a way 
 
 On top of that, there's the reliability and security aspect of it. I know my access to my account or products isn't going to go down very often if I'm hosted with one of these companies, since they all have at least three 9s of uptime, and it is very unlikely that they get hacked or lose my data since they have tons of very talented programmers and engineers working on these products to ensure everything stays safe.
 
-I haven't really solved the cohesiveness issue, and only time will tell for the reliability (but i do have snapshots and backups in place), but I am pretty sure I have the kinks ironed out mostly for the security on on my own self-hosted stack. I'm happy so far with what I have setup, but I will look into expanding into more tools once I know my current setup is stable.
+I haven't really solved the cohesiveness issue, and only time will tell for the reliability (but I do have snapshots and backups in place), but I am pretty sure I have the kinks ironed out mostly for the security on on my own self-hosted stack. I'm happy so far with what I have setup, but I will look into expanding into more tools once I know my current setup is stable.
 
 ## Overview
 
