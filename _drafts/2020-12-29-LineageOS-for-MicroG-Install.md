@@ -77,7 +77,7 @@ Unfortunately, the oldest Recovery image available on their website at the momen
 
 I could either:
 1. wait until the newer Lineage4microG image comes out for Jan 2021, use the 12/27/2020 recovery image, and then flash the 01/??/2021 Lineage4microG zip, or
-2. if I don't feel like waiting for them to make a new release and post it to the lineage4microG website, I could build my own image. They have instructions on their website for how to build an image with their Docker container.
+2. if I don't feel like waiting for them to make a new release and post it to the Lineage4microG website, I could build my own image. They have instructions on their website for how to build an image with their Docker container.
 
 I have to decide how I want to proceed.
 
